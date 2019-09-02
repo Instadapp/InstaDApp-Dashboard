@@ -1,0 +1,90 @@
+{
+  "mintCTokenLogic": {
+    "constant": false,
+    "inputs": [
+        {
+            "name": "erc20",
+            "type": "address"
+        },
+        {
+            "name": "cErc20",
+            "type": "address"
+        },
+        {
+            "name": "tokenAmt",
+            "type": "uint256"
+        }
+    ],
+    "name": "mintCToken",
+    "outputs": [],
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  "redeemCTokenLogic": {
+    "constant": false,
+    "inputs": [
+        {
+            "name": "erc20",
+            "type": "address"
+        },
+        {
+            "name": "cErc20",
+            "type": "address"
+        },
+        {
+            "name": "cTokenAmt",
+            "type": "uint256"
+        }
+    ],
+    "name": "redeemCToken",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  "borrowLogic" :   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "erc20",
+        "type": "address"
+      },
+      {
+        "name": "cErc20",
+        "type": "address"
+      },
+      {
+        "name": "tokenAmt",
+        "type": "uint256"
+      }
+    ],
+    "name": "borrow",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  "repayTokenLogic": {
+    "constant": false,
+    "inputs": [
+        {
+            "name": "erc20",
+            "type": "address"
+        },
+        {
+            "name": "cErc20",
+            "type": "address"
+        },
+        {
+            "name": "tokenAmt",
+            "type": "uint256"
+        }
+    ],
+    "name": "repayToken",
+    "outputs": [],
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "function"
+}
+}

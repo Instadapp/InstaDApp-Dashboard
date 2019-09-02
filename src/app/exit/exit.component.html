@@ -1,0 +1,111 @@
+<div class="container mx-auto navBar">
+
+  <div class="row">
+    <div class="col mt-2">
+      <div class="card">
+        <div class="card-header text-center my-auto">
+            <h6 class="supTitle">EXIT FROM INSTADAPP ECOSYSTEM</h6>
+            <h3 class="title"><b>
+              Exit / Withdraw
+            </b>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+
+    <div class="col-md-4">
+      <div class="card align-middle text-center">
+        <div class="card-header font-weight-bold bg-white">
+          Balances
+        </div>
+        <div class="card-body">
+          <div class="tokenBals " *ngFor="let token of tokensBal">
+            <div class="row">
+              <div class="col-md-3 px-0">
+                <img src="assets/img/icons/tokens/{{token.url}}.svg" width="50" height="50" class="avatar-img rounded-circle tokenImg" alt="...">
+              </div>
+              <div class="col-md-4 text-center my-auto">
+                <h5 class="">
+                  {{token.bal || 0.00 | number:'1.0-3' }} {{token.name}}
+                </h5>
+
+              </div>
+              <div class="col-md-5">
+                <button type="button" [disabled]="!token.bal" class="btn btn-primary m-2" (click)="withdrawToken(token)" [ngStyle]="{'width': '6em'}" >Withdraw</button>
+
+              </div>
+            </div>
+
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- <div class="col-md-4">
+    <div class="card align-middle text-center">
+      <div class="card-header font-weight-bold bg-white">
+        Uniswap Pools
+      </div>
+      <div class="card-body">
+        <div class="tokenBals " *ngFor="let token of tokensUniSwap">
+          <div class="row">
+            <div class="col-md-3 mr-0 px-0">
+              <img src="assets/img/icons/tokens/{{token.url}}.svg" width="50" height="50" class="avatar-img rounded-circle tokenImg" alt="...">
+            </div>
+            <div class="col-md-4 text-center my-auto px-0">
+              <h6 class="uniSwapShare">
+                <b>
+                  Your Share: {{token.shareBal || 0.00 | number:'1.0-3'}}%
+                </b>
+              </h6>
+              <h6 class="uniSwapBal">
+                0.00 {{token.name}} | 0.00 ETH
+              </h6>
+
+            </div>
+            <div class="col-md-5">
+              <button type="button" [disabled]="!token.shareBal"  class="btn btn-primary m-2" (click)="withdrawUniSwap(token)" [ngStyle]="{'width': '6em'}" >Withdraw</button>
+
+            </div>
+          </div>
+
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <div class="col-md-4">
+    <div class="card align-middle text-center">
+      <div class="card-header font-weight-bold bg-white">
+        Debt Positions
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-7 align-middle my-auto">
+            <h4 class=" makeCDP font-weight-bolder">
+              <!-- <a href=""> -->
+                #{{CDPID}}
+              <!-- </a> -->
+            </h4>
+          </div>
+
+          <div class="col-md-5">
+            <button type="button"  class="btn btn-primary m-2" (click)="withdrawCDP(CDPID)" [disabled]="!CDPID" [ngStyle]="{'width': '6em'}" >Withdraw</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>PayBack {{data.name}}</h1>
+
+<div mat-dialog-content>
+  <mat-form-field class="w-100">
+    <mat-label>Balance</mat-label>
+    <input matInput [ngModel]="data.userTokenBal | number:'1.0-3'" readonly>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>MAX PAYBACK</mat-label>
+    <input matInput [ngModel]="data.maxPayback | number:'1.0-3'" readonly>
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="legacy" floatLabel="never">
+    <input matInput [(ngModel)]="value" (ngModelChange)="calculate($event)" placeholder="{{data.name}} TO PAYBACK">
+  </mat-form-field>
+
+  <mat-slide-toggle
+    [(ngModel)]="checked"
+    [color]="color"
+    class="pb-2"
+    (change)="changed()">
+    Set Max
+  </mat-slide-toggle>
+  <hr>
+  <mat-form-field class="w-100" >
+    <mat-label>PAYBACK VALUE $</mat-label>
+    <input matInput class="text-muted" [ngModel]="data.paybackValue  | number:'1.0-5'" readonly>
+  </mat-form-field>
+  <button  [mat-dialog-close]="data" class="btn btn-primary text-white w-100" [disabled]="btnStatus">Payback</button>
+  <div class="alert alert-danger bg-danger text-white mt-4" role="alert" *ngIf="status">
+  <h6>{{status}}</h6>
+  </div>
+</div>

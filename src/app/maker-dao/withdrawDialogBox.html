@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Withdraw Collateral (ETH)</h1>
+
+<div mat-dialog-content>
+  <mat-form-field class="w-100">
+    <mat-label>MAX AVAILABLE TO WITHDRAW</mat-label>
+    <input matInput [ngModel]="data.maxWithDrawValue | number:'1.0-3'" readonly>
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="legacy" floatLabel="never">
+    <input matInput [(ngModel)]="value" (ngModelChange)="calculate($event)" placeholder="ETH to withdraw">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>BREAKEVEN PRICE (ETH)</mat-label>
+    <input matInput [ngModel]="breakEvenPrice | number:'1.0-3'" readonly>
+  </mat-form-field>
+  <button  [mat-dialog-close]="executeData" class="btn btn-primary text-white w-100" [disabled]="btnStatus">WITHDRAW</button>
+  <div class="alert alert-danger bg-danger text-white" role="alert" *ngIf="status">
+  {{status}}
+  </div>
+</div>

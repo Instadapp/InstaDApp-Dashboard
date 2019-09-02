@@ -1,0 +1,50 @@
+{
+  "withdrawETHLogic" : {
+    "constant": false,
+    "inputs": [
+
+    ],
+    "name": "transferETH",
+    "outputs": [
+
+    ],
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "function"
+},
+
+"withdrawTokenLogic" : {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "tokenAddr",
+        "type": "address"
+      }
+    ],
+    "name": "transferERC20",
+    "outputs": [
+
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+
+"withdrawCDPLogic" : {
+    "constant": false,
+    "inputs": [
+        {
+            "name": "num",
+            "type": "uint256"
+        }
+    ],
+    "name": "transferCDP",
+    "outputs": [
+
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}
+
+}

@@ -1,0 +1,10 @@
+<h2 class="text-center" mat-dialog-title>{{data.title}}</h2>
+<hr>
+<div mat-dialog-content>
+  <div class="text-center">
+    <h5 class="text-{{data.msgColor}}">{{data.msg}}</h5>
+    <a href="https://instadapp.io" *ngIf="data.link">InstaDApp</a>
+    <!-- <a (click)="connectMetamask()" class="btn btn-primary text-white tokenCardBtn mr-2">Close CDP</a> -->
+
+  </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "/compoundAPI/*": {
+        "target": "https://api.instadapp.io",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {"^/compoundAPI" : ""}
+    },
+    "/instadappAPI/*": {
+        "target": "https://instadapp.io",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {"^/instadappAPI" : ""}
+    },
+    "/mkr/*": {
+        "target": "https://mkr.tools/api/v1",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {"^/mkr" : ""}
+    }
+}

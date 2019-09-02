@@ -1,0 +1,166 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3 class="title"><b>
+            Compound Finance
+            </b>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row text-center">
+      <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <h5 class="card-header text-uppercase bg-transparent text-muted"><b>Lend</b></h5>
+          <div class="card-body">
+            <h6 class="card-title assetValue"><b>${{(lendBal) | number:'1.0-2'}}</b></h6>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-md-4 col-sm-12">
+      <div class="card">
+        <h5 class="card-header text-uppercase bg-transparent text-muted"><b>Borrow</b></h5>
+        <div class="card-body">
+          <h6 class="card-title assetValue"><b>${{(borrowBal) | number:'1.0-2'}}</b></h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+      <div class="card">
+        <h5 class="card-header text-uppercase bg-transparent text-muted"><b>Borrowing Power</b></h5>
+        <div class="card-body">
+          <h6 class="card-title assetValue"><b>${{(borrowingPowerBal) | number:'1.0-2'}}</b></h6>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+
+  <!-- Tokens table -->
+
+    <div class="card">
+      <!-- <h3 class="card-header bg-transparent text-black-50">Tokens </h3> -->
+
+      <div class="card-body tokenTable">
+        <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th class="align-middle text-center" scope="col"></th>
+                <th class="align-middle text-center" scope="col">Value</th>
+                <th class="align-middle text-center" *ngIf="tableStatus" scope="col">Amount</th>
+                <th class="align-middle text-center" scope="col">Supply (APR)</th>
+                <th class="align-middle text-center" scope="col">Borrow (APR)</th>
+                <th class="align-middle text-center" *ngIf="tableStatus" scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tableCol" *ngFor = "let token of tokensList">
+                <td class="align-middle text-center">
+                  <img src="assets/img/icons/tokens/{{token.url}}.svg" width="50" height="50" class="avatar-img rounded-circle tokenImg" alt="...">
+                </td>
+                <td class="align-middle text-center">
+                  <h4 class="tokenValue">${{ token.balValue || 0 | number:'1.0-2'}}</h4>
+                  <!-- <br><h6 class="supTokenName text-uppercase">{{token.name}}</h6> -->
+                </td>
+                <td class="align-middle text-center" *ngIf="token.type"><span class="mb-1 badge badge-pill tokenBalAmount badge-{{token.type}}">{{token.bal | number:'1.0-3'}}</span></td>
+                <td class="align-middle text-center"  ><h4 class="tokenSupply">{{ (token.supplyRate || 0) | number:'1.0-3'}}%</h4></td>
+                <td class="align-middle text-center"><h4 class="tokenBorrow">{{( token.borrowRate || 0) | number:'1.0-3'}}%</h4></td>
+                <td class="align-middle text-center">
+                  <button type="button" *ngIf="token.type == 'primary' || token.type == 'success'" class="btn btn-{{token.type}} m-2" (click)="supply(token)"  [ngStyle]="{'width': '6em'}">Supply</button>
+                  <button type="button" *ngIf="token.type == 'success'" class="btn btn-{{token.type}} m-2" (click)="withdraw(token)" [ngStyle]="{'width': '6em'}" >Withdraw</button>
+                  <button type="button" *ngIf="token.type == 'primary' || token.type == 'warning'" class="btn btn-{{token.type}} m-2" (click)="borrow(token)" [ngStyle]="{'width': '6em'}">Borrow</button>
+                  <button type="button" *ngIf="token.type == 'warning'" class="btn btn-{{token.type}}  m-2" (click)="payBack(token)" [ngStyle]="{'width': '6em'}">Payback</button>
+                  <!-- <button type="button"  class="btn btn-{{token.type}}" (click)="payBack(token)">payback</button> -->
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row tokens-card">
+    <div class="col-md-4 py-3 tokenCol" *ngFor = "let token of tokens">
+
+
+
+      <div class="card token-card">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4">
+                  <img src="assets/img/icons/tokens/{{token.name}}.svg" width="50" height="50" class="avatar-img rounded-circle tokenImg" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <h3 class="card-title token-price">$0.00</h3>
+                </div>
+            </div>
+            <hr>
+
+            <div class="card-body">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <span class="badge badge-pill badge-secondary">position</span>
+                </div>
+
+                <div class="col-md-6 card-body-value">
+                  <p class="token-body-value">0</p>
+
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>Supply (APR)</h5>
+                </div>
+
+                <div class="col-md-6 card-body-value">
+                  <p class="token-body-value">0%</p>
+
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>Borrow (APR)</h5>
+                </div>
+
+                <div class="col-md-6 card-body-value">
+                  <p class="token-body-value">0%</p>
+                </div>
+              </div>
+
+              <hr>
+
+            </div>
+      </div>
+    </div>
+
+
+    </div>
+  </div> -->
+
+
+</div>

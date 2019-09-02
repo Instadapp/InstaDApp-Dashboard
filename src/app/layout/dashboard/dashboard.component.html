@@ -1,0 +1,52 @@
+<div class="container mx-auto navBar">
+  <!-- <div class="row">
+    <div class="col-md-3">
+      <app-sidebar></app-sidebar>
+    </div>
+
+  </div> -->
+
+  <div class="row">
+    <div class="col-md-1 col-3 pr-0">
+      <img src="assets/img/logos/logo.png" width="67" height="67" class="img-thumbnail border-0" alt="">
+    </div>
+
+    <div class="col-md-9 col-7 pl-0 mt-3">
+        <h6 class="supTitle">ALTERNATE DASHBOARD</h6>
+        <h3 class="title"><b>
+          InstaDApp
+          </b>
+        </h3>
+    </div>
+
+    <div class="col-md-2 col-12 text-center mt-3">
+      <app-connectbtn></app-connectbtn>
+    </div>
+  </div>
+</div>
+
+<div class="container protocalContainer">
+  <div class="row protcolRow">
+    <div class="col ">
+      <!-- <router-outlet></router-outlet> -->
+      <!-- <app-compound></app-compound>
+      <app-maker-dao></app-maker-dao> -->
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <app-footer></app-footer>
+</footer>
+<!--
+<div class="wrapper">
+    <div class="sidebar">
+
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div class="main-panel">
+    </div>
+</div> -->

@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Withdraw {{data.name}}</h1>
+
+<div mat-dialog-content>
+  <mat-form-field class="w-100">
+    <mat-label>MAX Amount to withdraw</mat-label>
+    <input matInput [ngModel]="data.bal | number:'1.0-3'" readonly>
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="legacy" floatLabel="never">
+    <input matInput [(ngModel)]="value" (ngModelChange)="calculate($event)" placeholder="{{data.name}} TO WITHDRAW">
+  </mat-form-field>
+  <mat-slide-toggle
+    [(ngModel)]="checked"
+    [color]="color"
+    class="pb-2"
+    (change)="changed()">
+    Set Max
+  </mat-slide-toggle>
+  <hr>
+  <mat-form-field class="w-100">
+    <mat-label>WITHDRAW VALUE $</mat-label>
+    <input matInput class="text-muted" [ngModel]="data.withdrawValue  | number:'1.0-5'" readonly>
+  </mat-form-field>
+
+  <button  [mat-dialog-close]="data" class="btn btn-primary text-white w-100" [disabled]="btnStatus">Withdraw</button>
+  <div class="alert alert-danger bg-danger text-white mt-4" role="alert" *ngIf="status">
+  <h6>{{status}}</h6>
+  </div>
+</div>

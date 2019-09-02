@@ -1,0 +1,20 @@
+<div class="text-center" mat-dialog-title>
+  <h4 >Transaction Status</h4>
+</div>
+
+<hr>
+<div mat-dialog-content>
+  <div class="text-center">
+    <h2 class="text-{{data.msgColor}}">{{data.msg}}</h2>
+    <mat-progress-spinner
+       class="loader my-3 mx-auto mat-spinner-color"
+       [color]="color"
+       [mode]="mode"
+       [value]="value"
+       [diameter]="60"
+       *ngIf="!data.status">
+   </mat-progress-spinner>
+    <a class="hashLink" href="https://etherscan.io/tx/{{data.hash}}" target="_blank">{{data.shortHash}}</a>
+    <p class="tnxHash text-muted">Transaction hash</p>
+  </div>
+</div>

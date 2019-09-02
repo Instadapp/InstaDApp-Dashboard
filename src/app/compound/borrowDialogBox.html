@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Borrow {{data.name}}</h1>
+
+<div mat-dialog-content>
+  <mat-form-field class="w-100">
+    <mat-label>MAX POWER TO BORROW</mat-label>
+    <input matInput [ngModel]="data.maxBorrowValue | number:'1.0-3'" readonly>
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>BORROW APR %</mat-label>
+    <input matInput [ngModel]="data.borrowRate | number:'1.0-3'" readonly>
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="legacy" floatLabel="never">
+    <input matInput [(ngModel)]="value" (ngModelChange)="calculate($event)" placeholder="{{data.name}} TO BORROW">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>BORROW VALUE $</mat-label>
+    <input matInput class="text-muted" [ngModel]="data.borrowValue  | number:'1.0-5'" readonly>
+  </mat-form-field>
+  <button  [mat-dialog-close]="data" class="btn btn-primary text-white w-100" [disabled]="btnStatus">Borrow</button>
+  <div class="alert alert-danger bg-danger text-white mt-4" role="alert" *ngIf="status">
+  <h6>{{status}}</h6>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Payback Debt (DAI)</h1>
+
+<div mat-dialog-content>
+  <mat-form-field class="w-100">
+    <mat-label>BALANCE (DAI)</mat-label>
+    <input matInput [ngModel]="data.daiBal | number:'1.0-2'" readonly>
+  </mat-form-field>
+  <!-- <mat-form-field class="w-100">
+    <mat-label>Borrow APR</mat-label>
+    <input matInput [ngModel]="data.borrowRate | number:'1.0-2'" readonly>
+  </mat-form-field> -->
+  <mat-form-field class="w-100" appearance="legacy" floatLabel="never">
+    <input matInput [(ngModel)]="value" (ngModelChange)="calculate($event)" placeholder="DAI to payback">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>BREAKEVEN PRICE (ETH)</mat-label>
+    <input matInput [ngModel]="breakEvenPrice | number:'1.0-3'" readonly>
+  </mat-form-field>
+  <button  [mat-dialog-close]="executeData" class="btn btn-primary text-white w-100" [disabled]="btnStatus">PAYBACK</button>
+  <div class="alert alert-danger bg-danger text-white mt-4" role="alert" *ngIf="status">
+  <h6>{{status}}</h6>
+  </div>
+</div>

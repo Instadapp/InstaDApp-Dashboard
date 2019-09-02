@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-6 col-6 my-auto">
+              <h3 class="title"><b>
+                MakerDAO CDP
+              </b>
+            </h3>
+
+            </div>
+            <div class="col-md-6 col-6 align-middle my-auto text-right">
+              <a (click)="close()" class="btn btn-primary text-white tokenCardBtn mr-2">Close CDP</a>
+              <!-- <a (click)="check()" class="btn btn-primary text-white tokenCardBtn mr-2">Check</a> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row assetsRow text-center">
+    <div class="col-md-4 mt-4">
+      <div class="card">
+        <h5 class="card-header text-uppercase bg-transparent text-muted"><b>CDP NUMBER</b></h5>
+        <div class="card-body">
+          <h6 class="card-title assetValue">#{{makerStats.cdp || 0}}</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mt-4">
+      <div class="card">
+        <h5 class="card-header text-uppercase bg-transparent text-muted"><b>NET CDP VALUE</b></h5>
+        <div class="card-body">
+          <h6 class="card-title assetValue">${{(makerStats.netValue || 0) | number:'1.0-2'}}</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mt-4">
+      <div class="card">
+        <h5 class="card-header text-uppercase bg-transparent text-muted"><b>STABILITY FEES <span class="stabilityPercentage"> {{makerStats.feePercentage | number:'1.0-1'}}% </span> </b></h5>
+        <div class="card-body">
+          <h6 class="card-title assetValue">${{(makerStats.fee || 0) | number:'1.0-3'}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="row tokenCards">
+
+      <div class="col-md-6 mt-3">
+        <div class="card token-card" >
+          <div class="row">
+            <div class="col text-center">
+              <h5 class="card-header tokenCardTitle bg-transparent text-black-50"><b>Borrowed</b></h5>
+
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <img src="assets/img/icons/tokens/dai.svg" width="75" height="75" class="avatar-img rounded-circle tokenImg" alt="...">
+
+            <h4 class="card-title tokenValue">${{(makerStats.dai || 0)}}</h4>
+            <a (click)="generate()" class="btn btn-primary text-white tokenCardBtn mr-2">GENERATE</a>
+            <a (click)="payBack()" class="btn btn-primary text-white tokenCardBtn mr-2">PAYBACK</a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mt-3">
+        <div class="card token-card">
+            <div class="row">
+              <div class="col text-center">
+                <h5 class=" card-header tokenCardTitle bg-transparent text-black-50"><b>Collateral</b></h5>
+              </div>
+
+              <!-- <div class="col">
+                <h5 class="text-right">(${{(makerStats.collateralValue || 0) | number:'1.0-3'}})</h5>
+              </div> -->
+            </div>
+
+          <div class="card-body text-center">
+            <img src="assets/img/icons/tokens/eth.svg" width="75" height="75" class="avatar-img rounded-circle tokenImg" alt="...">
+
+            <h4 class="card-title tokenValue">Ξ{{(makerStats.eth || 0) | number:'1.0-3'}}</h4>
+            <a class="btn btn-primary text-white tokenCardBtn mr-2" (click)="deposit()">DEPOSIT</a>
+            <a class="btn btn-primary text-white tokenCardBtn mr-2" (click)="withdraw()">WITHDRAW</a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+</div>
